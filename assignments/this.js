@@ -52,6 +52,29 @@ myOrder.food('hot wings')
 // start with capital letter
 // behave like normal f() until we use new keyword
 // code example for New Binding
+
+
+function Team(tattr) {
+	(this.name = tattr.name),
+  	(this.team = tattr.team),
+    (this.league = tattr.league)
+}
+
+//Team.prototype = Object.create(CharacterStats.prototype);
+
+Team.prototype.intro = function() {
+  return `${this.name} plays on ${this.team}`;
+};
+
+const lisa = new Team({
+	name: 'Lisa',
+	team: 'Miami',
+	league: 'East',
+})
+
+console.log(lisa.intro());
+
+
 function IamFrom(attrs){
 	this.name = attrs.name;
 	this.introduce = 'I am ';
@@ -93,7 +116,9 @@ const yao = new IamFrom({
 const shaq = new IamFrom({name: 'Shaq', city: 'Down South'})
 const elBoludo = new IamFrom({name: 'El Boludo', city: 'Buenos Aires'})
 
-/*console.log(elBoludo)// created an object, because used new 
+shaq.speak(yao);
+
+console.log(elBoludo)// created an object, because used new 
 
 yao.speak();
 shaq.speak();
@@ -105,7 +130,7 @@ yu.eat();
 
 
 
-//yu.speak();
+
 // Principle 4
 
 // code example for Explicit Binding
@@ -113,7 +138,7 @@ yu.eat();
 //shaq.speak.apply(elBoludo)
 
 
-*/
+
 function Pet(attributes){
   this.newName = attributes.name,
   this.newSpecies = attributes.species, 
